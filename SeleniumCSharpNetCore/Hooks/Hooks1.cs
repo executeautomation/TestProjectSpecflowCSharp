@@ -1,4 +1,4 @@
-﻿using System;
+    ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,8 @@ namespace SeleniumCSharpNetCore.Hooks
 
             Console.WriteLine("Setup");
 
-
+            //Using TestProject OpenSDK replacing the existing WebDriverManager
+            //Note: Here the Token is taken from the .runsettings file
             _driverHelper.Driver = new ChromeDriver();
         }
 
