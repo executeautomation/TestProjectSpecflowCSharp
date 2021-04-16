@@ -21,5 +21,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Run TestProject Agent
+      env:
+        TP_API_KEY: ${{ secrets.TP_API_KEY }}
+      run: |
+        envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+        docker-compose -f docker-compose.yml up -d    
     - name: Test
       run: dotnet test --no-build --verbosity normal
